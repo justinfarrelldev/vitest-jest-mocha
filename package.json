@@ -1,0 +1,14 @@
+{
+  "name": "vitest-jest-mocha",
+  "version": "1.0.0",
+  "description": "This is a repo for easy performance and UX comparison of Vitest, Jest and Mocha",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^29.7.0"
+  }
+}
