@@ -1,10 +1,12 @@
 import { configDefaults, defineConfig } from 'vitest/config';
 
+// This is the same config as the JS one, just pointing to a different folder.
+// Vitest automatically supports Typescript.
+
 // https://vitejs.dev/config/
 export default defineConfig({
   test: {
-    testMatch: ['<rootDir>/src/js/vitest/*.vitest.test.js'],
     environment: 'node',
-    include: ['**/*.vitest.test.js']
+    include: ['**/*.vitest.test.ts']
   },
 });

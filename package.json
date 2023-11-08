@@ -8,7 +8,8 @@
     "jest": "NODE_OPTIONS=--experimental-vm-modules jest --config=jest.js.config.js",
     "vitest": "vitest run --config=vitest.js.config.js",
     "mocha": "mocha --config .mocharc.cjs",
-    "ts-jest": "jest --config=jest.ts.config.js"
+    "ts-jest": "jest --config=jest.ts.config.js",
+    "ts-vitest": "vitest run --config=vitest.ts.config.js"
   },
   "author": "",
   "license": "ISC",
