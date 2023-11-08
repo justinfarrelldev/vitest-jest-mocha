@@ -6,13 +6,21 @@
   "type": "module",
   "scripts": {
     "jest": "NODE_OPTIONS=--experimental-vm-modules jest --config=jest.js.config.js",
-    "vitest": "vitest run --config=vitest.js.config.js"
+    "vitest": "vitest run --config=vitest.js.config.js",
+    "mocha": "mocha --config .mocharc.cjs"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@babel/core": "^7.23.2",
+    "@babel/preset-env": "^7.23.2",
+    "@babel/register": "^7.22.15",
     "jest": "^29.7.0",
     "mocha": "^10.2.0",
+    "regenerator-runtime": "^0.14.0",
     "vitest": "^0.34.6"
+  },
+  "dependencies": {
+    "chai": "^4.3.10"
   }
 }
