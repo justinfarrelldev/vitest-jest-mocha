@@ -9,7 +9,8 @@
     "vitest": "vitest run --config=vitest.js.config.js",
     "mocha": "mocha --config .mocharc.cjs",
     "ts-jest": "jest --config=jest.ts.config.js",
-    "ts-vitest": "vitest run --config=vitest.ts.config.js"
+    "ts-vitest": "vitest run --config=vitest.ts.config.js",
+    "ts-mocha": "mocha --config .mocharc.ts.cjs"
   },
   "author": "",
   "license": "ISC",
@@ -18,10 +19,12 @@
     "@babel/preset-env": "^7.23.2",
     "@babel/register": "^7.22.15",
     "@types/jest": "^29.5.8",
+    "@types/mocha": "^10.0.4",
     "jest": "^29.7.0",
     "mocha": "^10.2.0",
     "regenerator-runtime": "^0.14.0",
     "ts-jest": "^29.1.1",
+    "ts-node": "^10.9.1",
     "typescript": "^5.2.2",
     "vitest": "^0.34.6"
   },
