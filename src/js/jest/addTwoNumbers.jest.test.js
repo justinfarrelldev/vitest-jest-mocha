@@ -1,4 +1,4 @@
-import { addTwoNumbers } from "./addTwoNumbers";
+import { addTwoNumbers } from "../addTwoNumbers";
 
 const TEST_NUM1 = 2;
 const TEST_NUM2 = 2;

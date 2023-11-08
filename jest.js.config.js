@@ -1,4 +1,4 @@
 export default {
     transform: {},
-    testNamePattern: 'jest'
+    testMatch: ['<rootDir>/src/js/jest/*.jest.test.js']
   };
