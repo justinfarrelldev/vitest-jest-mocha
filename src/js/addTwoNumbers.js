@@ -1,5 +1,3 @@
-
-
 /**
  * This is a function to add two numbers together!
  * @param {number} num1 The first number to sum.
