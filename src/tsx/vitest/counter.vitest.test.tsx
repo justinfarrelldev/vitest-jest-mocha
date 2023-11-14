@@ -1,4 +1,5 @@
-import React from "react"; // this is necessary for Vitest, but not for Jest
+import React from "react"; // For some reason, Vitest does not seem to bring up the lack of this import
+// until TS comes into play.
 import { act, render, screen, cleanup } from "@testing-library/react";
 import { Counter, INITIAL_COUNT } from "../counter";
 import { describe, it, expect, afterEach } from "vitest";
