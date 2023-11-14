@@ -3,6 +3,14 @@ import { act, render, screen, cleanup } from "@testing-library/react";
 import { Counter, INITIAL_COUNT } from "../counter";
 import { describe, it, expect, afterEach } from "vitest";
 
+/*
+    IMPORTANT DISCLAIMER
+
+    I was able to figure out how to use .concurrent within the Node tests, however using it in this 
+    suite did not work out for me due to the cleanup bug described within the "afterEach". If you 
+    know how to use concurrency while mounting to the DOM in Vitest, please reach out!
+*/
+
 describe("counter - jest (react)", () => {
   afterEach(() => {
     // This is quite important, without these you will get strange subsequent test runs
