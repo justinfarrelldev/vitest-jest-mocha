@@ -4,5 +4,9 @@ module.exports = {
         'ts-node/register'
     ],
     "extension": ["ts"],
-    "loader": "ts-node/esm"
+    "loader": "ts-node/esm",
+    "reporter": "xunit",
+    "reporter-option": [
+        `output=reports/ts-mocha-${(new Date()).getTime()}.xml`
+    ]
 }

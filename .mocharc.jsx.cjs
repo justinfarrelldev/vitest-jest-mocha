@@ -5,5 +5,9 @@ module.exports = {
         'regenerator-runtime/runtime',
         'jsdom-global/register'
     ],
-    "extension": ["jsx"]
+    "extension": ["jsx"],
+    "reporter": "xunit",
+    "reporter-option": [
+        `output=reports/jsx-mocha-${(new Date()).getTime()}.xml`
+    ]
 }

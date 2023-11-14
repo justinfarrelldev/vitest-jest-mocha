@@ -4,4 +4,8 @@ module.exports = {
         '@babel/register',
         'regenerator-runtime/runtime',
     ],
+    "reporter": "xunit",
+    "reporter-option": [
+        `output=reports/js-mocha-${(new Date()).getTime()}.xml`
+    ]
 }
