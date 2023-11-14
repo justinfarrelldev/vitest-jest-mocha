@@ -3,7 +3,7 @@ import React from "react"; // For some reason, Jest does not seem to bring up th
 import { act, render, screen } from "@testing-library/react";
 import { Counter, INITIAL_COUNT } from "../counter";
 
-describe("counter - jest (react)", () => {
+describe("counter - jest (react + TS)", () => {
   it(`should initialize to ${INITIAL_COUNT}`, async () => {
     render(<Counter />);
 
