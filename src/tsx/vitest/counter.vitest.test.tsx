@@ -23,8 +23,6 @@ describe("counter - vitest (react)", () => {
   it(`should initialize to ${INITIAL_COUNT}`, async () => {
     render(<Counter />);
 
-    screen.debug();
-
     const heading = await screen.findByRole("heading");
 
     expect(heading.textContent).toBe(`Current Count: ${INITIAL_COUNT}`);

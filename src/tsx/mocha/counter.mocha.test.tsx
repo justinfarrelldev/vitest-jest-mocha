@@ -9,8 +9,6 @@ describe("counter - mocha (react)", () => {
   it(`should initialize to ${INITIAL_COUNT}`, async () => {
     render(<Counter />);
 
-    screen.debug();
-
     const heading = await screen.findByRole("heading");
 
     expect(heading.textContent).to.equal(`Current Count: ${INITIAL_COUNT}`);
