@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 
+export const INITIAL_COUNT = 0;
+
 export const Counter = () => {
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState(INITIAL_COUNT);
 
   return (
     <>

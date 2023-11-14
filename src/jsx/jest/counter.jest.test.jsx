@@ -1,0 +1,14 @@
+import { render, screen } from "@testing-library/react";
+import { Counter, INITIAL_COUNT } from "../counter";
+
+describe("counter - jest (react)", () => {
+  it(`should initialize to ${INITIAL_COUNT}`, async () => {
+    render(<Counter />);
+
+    screen.debug();
+
+    const heading = await screen.findByRole("heading");
+
+    expect(heading.textContent).toBe(`Current Count: ${INITIAL_COUNT}`);
+  });
+});
