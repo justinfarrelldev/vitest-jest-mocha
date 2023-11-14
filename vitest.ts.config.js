@@ -1,4 +1,4 @@
-import { configDefaults, defineConfig } from 'vitest/config';
+import { defineConfig } from 'vitest/config';
 
 // This is the same config as the JS one, just pointing to a different folder.
 // Vitest automatically supports Typescript.

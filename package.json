@@ -14,7 +14,8 @@
     "jsx-jest": "NODE_OPTIONS=--experimental-vm-modules jest --config=jest.jsx.config.js",
     "jsx-vitest": "vitest run --config=vitest.jsx.config.js",
     "jsx-mocha": "mocha --config .mocharc.jsx.cjs",
-    "tsx-jest": "NODE_OPTIONS=--experimental-vm-modules jest --config=jest.tsx.config.js"
+    "tsx-jest": "NODE_OPTIONS=--experimental-vm-modules jest --config=jest.tsx.config.js",
+    "tsx-vitest": "vitest run --config=vitest.tsx.config.js"
   },
   "author": "",
   "license": "ISC",
