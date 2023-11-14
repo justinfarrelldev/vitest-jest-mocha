@@ -7,6 +7,8 @@ import { defineConfig } from 'vitest/config';
 export default defineConfig({
   test: {
     environment: 'node',
-    include: ['**/*.vitest.test.ts']
+    include: ['**/*.vitest.test.ts'],
+    reporters: ['default', 'junit'],
+    outputFile: `reports/ts-vitest-${(new Date()).getTime()}.xml`,
   },
 });

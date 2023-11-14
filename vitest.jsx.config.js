@@ -6,6 +6,8 @@ export default defineConfig({
   plugins: [react()],
   test: {
     environment: 'jsdom',
-    include: ['**/*.vitest.test.jsx']
+    include: ['**/*.vitest.test.jsx'],
+    reporters: ['default', 'junit'],
+    outputFile: `reports/jsx-vitest-${(new Date()).getTime()}.xml`,
   },
 });
