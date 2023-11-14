@@ -11,7 +11,7 @@ import { describe, it, expect, afterEach } from "vitest";
     know how to use concurrency while mounting to the DOM in Vitest, please reach out!
 */
 
-describe("counter - jest (react)", () => {
+describe("counter - vitest (react)", () => {
   afterEach(() => {
     // This is quite important, without these you will get strange subsequent test runs
     // where the cleanup will not be called and previous test cases will still be in

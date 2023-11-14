@@ -12,7 +12,8 @@
     "ts-vitest": "vitest run --config=vitest.ts.config.js",
     "ts-mocha": "mocha --config .mocharc.ts.cjs",
     "jest-jsx": "NODE_OPTIONS=--experimental-vm-modules jest --config=jest.jsx.config.js",
-    "vitest-jsx": "vitest run --config=vitest.jsx.config.js"
+    "vitest-jsx": "vitest run --config=vitest.jsx.config.js",
+    "mocha-jsx": "mocha --config .mocharc.jsx.cjs"
   },
   "author": "",
   "license": "ISC",
@@ -26,6 +27,7 @@
     "babel-jest": "^29.7.0",
     "jest": "^29.7.0",
     "jest-environment-jsdom": "^29.7.0",
+    "jsdom-global": "^3.0.2",
     "mocha": "^10.2.0",
     "react-test-renderer": "^18.2.0",
     "regenerator-runtime": "^0.14.0",
