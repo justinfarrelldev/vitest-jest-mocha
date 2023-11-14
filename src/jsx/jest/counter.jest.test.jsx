@@ -1,4 +1,4 @@
-import { render, screen } from "@testing-library/react";
+import { act, render, screen } from "@testing-library/react";
 import { Counter, INITIAL_COUNT } from "../counter";
 
 describe("counter - jest (react)", () => {
@@ -10,5 +10,21 @@ describe("counter - jest (react)", () => {
     const heading = await screen.findByRole("heading");
 
     expect(heading.textContent).toBe(`Current Count: ${INITIAL_COUNT}`);
+  });
+
+  it(`should increase to 1 if the "+1" button is pressed`, async () => {
+    render(<Counter />);
+
+    const plusOneButton = await screen.findByRole("button", {
+      name: "+1",
+    });
+
+    act(() => {
+      plusOneButton.click();
+    });
+
+    const heading = await screen.findByRole("heading");
+
+    expect(heading.textContent).toBe(`Current Count: 1`);
   });
 });
