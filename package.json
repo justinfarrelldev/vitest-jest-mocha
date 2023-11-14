@@ -11,9 +11,10 @@
     "ts-jest": "jest --config=jest.ts.config.js",
     "ts-vitest": "vitest run --config=vitest.ts.config.js",
     "ts-mocha": "mocha --config .mocharc.ts.cjs",
-    "jest-jsx": "NODE_OPTIONS=--experimental-vm-modules jest --config=jest.jsx.config.js",
-    "vitest-jsx": "vitest run --config=vitest.jsx.config.js",
-    "mocha-jsx": "mocha --config .mocharc.jsx.cjs"
+    "jsx-jest": "NODE_OPTIONS=--experimental-vm-modules jest --config=jest.jsx.config.js",
+    "jsx-vitest": "vitest run --config=vitest.jsx.config.js",
+    "jsx-mocha": "mocha --config .mocharc.jsx.cjs",
+    "tsx-jest": "NODE_OPTIONS=--experimental-vm-modules jest --config=jest.tsx.config.js"
   },
   "author": "",
   "license": "ISC",

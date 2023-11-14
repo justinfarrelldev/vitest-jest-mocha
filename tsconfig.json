@@ -4,7 +4,8 @@
       "rootDir": "./src",
       "esModuleInterop": true,
       "module": "ESNext",
-      "jsx": "react"
+      "jsx": "react",
+      "moduleResolution": "Node"
     },
     "include": ["src/**/*"],
     "exclude": ["node_modules"],
