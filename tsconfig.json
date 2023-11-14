@@ -3,7 +3,8 @@
       "outDir": "./lib",
       "rootDir": "./src",
       "esModuleInterop": true,
-      "module": "ESNext"
+      "module": "ESNext",
+      "jsx": "react"
     },
     "include": ["src/**/*"],
     "exclude": ["node_modules"],
