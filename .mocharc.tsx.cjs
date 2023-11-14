@@ -1,9 +1,10 @@
 module.exports = {
     "spec": "src/tsx/mocha/*.mocha.test.tsx",
+    "plugins": [ '@babel/plugin-transform-runtime' ],
     "require": [
-        '@babel/register',
-        'regenerator-runtime/runtime',
+        'ts-node/register',
         'jsdom-global/register'
     ],
-    "extension": ["tsx"]
+    "extension": ["tsx"],
+    "loader": "ts-node/esm"
 }

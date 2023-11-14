@@ -5,7 +5,7 @@
       "esModuleInterop": true,
       "module": "ESNext",
       "jsx": "react",
-      "moduleResolution": "Node"
+      "moduleResolution": "Bundler"
     },
     "include": ["src/**/*"],
     "exclude": ["node_modules"],
