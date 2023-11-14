@@ -27,4 +27,20 @@ describe("counter - jest (react)", () => {
 
     expect(heading.textContent).toBe(`Current Count: 1`);
   });
+
+  it(`should decrease to -1 if the "-1" button is pressed`, async () => {
+    render(<Counter />);
+
+    const plusOneButton = await screen.findByRole("button", {
+      name: "-1",
+    });
+
+    act(() => {
+      plusOneButton.click();
+    });
+
+    const heading = await screen.findByRole("heading");
+
+    expect(heading.textContent).toBe(`Current Count: -1`);
+  });
 });
