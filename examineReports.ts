@@ -70,7 +70,10 @@ const readReports = () => {
     finalMap.set(testType[0], totalSum / avgTimes.length);
   }
 
-  console.log("Final map: ", finalMap);
+  console.log(
+    "Map of Test Times (Seconds) for Each Test's Execution Time (NOT including startup and teardown) ",
+    finalMap
+  );
 };
 
 readReports();
