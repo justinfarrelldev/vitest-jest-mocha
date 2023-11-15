@@ -49,6 +49,28 @@ const readReports = () => {
     }
   }
   console.log("Agg: ", aggregatedMap);
+
+  // map of the test type and the average time to execute
+  let finalMap: Map<string, number> = new Map();
+  for (const testType of aggregatedMap.entries()) {
+    let avgTimes = testType[1].map((arr) => {
+      let sum = 0;
+      for (const time of arr) {
+        sum += time;
+      }
+      return sum / arr.length;
+    });
+
+    let totalSum = 0;
+
+    for (const time of avgTimes) {
+      totalSum += time;
+    }
+
+    finalMap.set(testType[0], totalSum / avgTimes.length);
+  }
+
+  console.log("Final map: ", finalMap);
 };
 
 readReports();
