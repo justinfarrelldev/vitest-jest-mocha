@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites name="vitest tests" tests="3" failures="0" errors="0" time="0.853">
+    <testsuite name="src/tsx/vitest/counter.vitest.test.tsx" timestamp="2023-11-15T06:22:48.121Z" hostname="justin-farrell" tests="3" failures="0" errors="0" skipped="0" time="0.09">
+        <testcase classname="src/tsx/vitest/counter.vitest.test.tsx" name="counter - vitest (react) &gt; should initialize to 0" time="0.042">
+        </testcase>
+        <testcase classname="src/tsx/vitest/counter.vitest.test.tsx" name="counter - vitest (react) &gt; should increase to 1 if the &quot;+1&quot; button is pressed" time="0.032">
+        </testcase>
+        <testcase classname="src/tsx/vitest/counter.vitest.test.tsx" name="counter - vitest (react) &gt; should decrease to -1 if the &quot;-1&quot; button is pressed" time="0.014">
+        </testcase>
+    </testsuite>
+</testsuites>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="jest tests" tests="3" failures="0" errors="0" time="2.697">
+  <testsuite name="counter - jest (react + TS)" errors="0" failures="0" skipped="0" timestamp="2023-11-15T06:21:16" time="2.214" tests="3">
+    <testcase classname="counter - jest (react + TS) should initialize to 0" name="counter - jest (react + TS) should initialize to 0" time="0.041">
+    </testcase>
+    <testcase classname="counter - jest (react + TS) should increase to 1 if the &quot;+1&quot; button is pressed" name="counter - jest (react + TS) should increase to 1 if the &quot;+1&quot; button is pressed" time="0.024">
+    </testcase>
+    <testcase classname="counter - jest (react + TS) should decrease to -1 if the &quot;-1&quot; button is pressed" name="counter - jest (react + TS) should decrease to -1 if the &quot;-1&quot; button is pressed" time="0.012">
+    </testcase>
+  </testsuite>
+</testsuites>

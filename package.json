@@ -17,7 +17,10 @@
     "tsx-jest": "NODE_OPTIONS=--experimental-vm-modules jest --config=jest.tsx.config.js",
     "tsx-vitest": "vitest run --config=vitest.tsx.config.js",
     "tsx-mocha": "mocha --experimental-specifier-resolution=node --config .mocharc.tsx.cjs",
-    "examine": "ts-node --esm examineReports.ts"
+    "examine": "ts-node --esm examineReports.ts",
+    "tsx-jest-watch": "NODE_OPTIONS=--experimental-vm-modules jest --config=jest.tsx.config.js --watch",
+    "tsx-vitest-watch": "vitest watch --config=vitest.tsx.config.js",
+    "tsx-mocha-watch": "echo See https://mochajs.org/#current-limitations"
   },
   "author": "Justin Farrell",
   "license": "ISC",
