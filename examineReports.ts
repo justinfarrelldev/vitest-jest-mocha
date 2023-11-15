@@ -59,6 +59,55 @@ const getAverageTestCaseTimes = (fileContents: Map<string, any>): void => {
   );
 };
 
+const getAverageTestSuiteTimes = (fileContents: Map<string, any>): void => {
+  // jest:   testsuites -> testsuite -> testcase x3
+  // vitest: testsuites -> testsuite -> testcase x3
+  // mocha:  testsuite -> testcase x3
+
+  // key is `${framework} ${testType}`, value is array of arrays of times
+  let aggMap: Map<string, any[]> = new Map();
+  for (const key of fileContents.keys()) {
+    const split = key.replace("reports/", "").split("-");
+    const testType = split[0];
+    const framework = split[1];
+    const currentXML = fileContents.get(key);
+    let time: number = -1;
+    if (currentXML["testsuite"]) {
+      // mocha reporter
+      const testSuite = currentXML["testsuite"];
+      time = Number(testSuite["_attributes"].time);
+    } else if (currentXML["testsuites"]) {
+      // jest/vitest reporters
+      const testSuite = currentXML["testsuites"]["testsuite"];
+      time = Number(testSuite["_attributes"].time);
+    }
+
+    const aggregationKey = `${framework} ${testType}`;
+    const valueWithinAggMap = aggMap.get(aggregationKey);
+    if (valueWithinAggMap) {
+      aggMap.set(aggregationKey, [...valueWithinAggMap, time]);
+    } else {
+      aggMap.set(aggregationKey, [time]);
+    }
+  }
+
+  // map of the test type and the average time to execute
+  let finalMap: Map<string, number> = new Map();
+  for (const testType of aggMap.entries()) {
+    let sum = 0;
+
+    for (const time of testType[1]) {
+      sum += time;
+    }
+    finalMap.set(testType[0], sum / testType[1].length);
+  }
+
+  console.log(
+    "Map of Times (Seconds) for Each Test Suite's Execution (INCLUDING startup and teardown) ",
+    finalMap
+  );
+};
+
 const readReports = () => {
   const reportFiles = fs.readdirSync("./reports");
 
@@ -77,6 +126,7 @@ const readReports = () => {
   }
 
   getAverageTestCaseTimes(fileContents);
+  getAverageTestSuiteTimes(fileContents);
 };
 
 readReports();
