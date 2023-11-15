@@ -18,6 +18,4 @@ Mocha requires you to install jsdom-global and require its register in your moch
 
 Mocha uses ts-node/esm for loading Typescript, which is interesting. Vitest supports TS out-of-the-box, and Jest uses either TS-Jest or Babel (in the case of these tests, I only bothered with TS-Jest).
 
-Mocha also requires the plugin '@babel/plugin-transform-runtime' for TSX code (but not for TS code).
-
 During the watch mode setup, it was found that Mocha does not support watch mode with ES Modules: https://mochajs.org/#current-limitations
