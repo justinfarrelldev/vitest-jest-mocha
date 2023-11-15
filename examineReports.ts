@@ -18,7 +18,24 @@ const readReports = () => {
     );
   }
 
-  console.log("fileContents: ", fileContents);
+  // jest:   testsuites -> testsuite -> testcase x3
+  // vitest: testsuites -> testsuite -> testcase x3
+  // mocha:  testsuite -> testcase x3
+
+  for (const key of fileContents.keys()) {
+    const currentXML = fileContents.get(key);
+    if (currentXML["testsuite"]) {
+      // mocha
+      const testCases = currentXML["testsuite"]["testcase"];
+      const times = testCases.map((item) => item["_attributes"].time);
+      console.log("MOCHA: ", times);
+    } else if (currentXML["testsuites"]) {
+      // jest/vitest
+      const testCases = currentXML["testsuites"]["testsuite"]["testcase"];
+      const times = testCases.map((item) => item["_attributes"].time);
+      console.log("Jest / Vitest: ", times);
+    }
+  }
 };
 
 readReports();
