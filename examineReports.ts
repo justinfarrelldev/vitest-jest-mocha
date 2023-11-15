@@ -1,23 +1,7 @@
 import { xml2json } from "xml-js";
 import fs from "node:fs";
 
-const readReports = () => {
-  const reportFiles = fs.readdirSync("./reports");
-
-  // key is file name, value is file contents
-  let fileContents: Map<string, any> = new Map();
-  for (const file of reportFiles) {
-    // I am well aware I am not handling errors gracefully, but this is being written fast ;D
-    fileContents.set(
-      `reports/${file}`,
-      JSON.parse(
-        xml2json(fs.readFileSync(`reports/${file}`).toString(), {
-          compact: true,
-        })
-      )
-    );
-  }
-
+const getAverageTestCaseTimes = (fileContents: Map<string, any>): void => {
   // jest:   testsuites -> testsuite -> testcase x3
   // vitest: testsuites -> testsuite -> testcase x3
   // mocha:  testsuite -> testcase x3
@@ -48,7 +32,6 @@ const readReports = () => {
       aggregatedMap.set(aggregationKey, [times]);
     }
   }
-  console.log("Agg: ", aggregatedMap);
 
   // map of the test type and the average time to execute
   let finalMap: Map<string, number> = new Map();
@@ -74,6 +57,26 @@ const readReports = () => {
     "Map of Test Times (Seconds) for Each Test's Execution Time (NOT including startup and teardown) ",
     finalMap
   );
+};
+
+const readReports = () => {
+  const reportFiles = fs.readdirSync("./reports");
+
+  // key is file name, value is file contents
+  let fileContents: Map<string, any> = new Map();
+  for (const file of reportFiles) {
+    // I am well aware I am not handling errors gracefully, but this is being written fast ;D
+    fileContents.set(
+      `reports/${file}`,
+      JSON.parse(
+        xml2json(fs.readFileSync(`reports/${file}`).toString(), {
+          compact: true,
+        })
+      )
+    );
+  }
+
+  getAverageTestCaseTimes(fileContents);
 };
 
 readReports();
