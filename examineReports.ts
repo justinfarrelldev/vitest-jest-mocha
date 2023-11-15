@@ -5,12 +5,16 @@ const readReports = () => {
   const reportFiles = fs.readdirSync("./reports");
 
   // key is file name, value is file contents
-  let fileContents: Map<string, string> = new Map();
+  let fileContents: Map<string, any> = new Map();
   for (const file of reportFiles) {
     // I am well aware I am not handling errors gracefully, but this is being written fast ;D
     fileContents.set(
       `reports/${file}`,
-      fs.readFileSync(`reports/${file}`).toString()
+      JSON.parse(
+        xml2json(fs.readFileSync(`reports/${file}`).toString(), {
+          compact: true,
+        })
+      )
     );
   }
 
