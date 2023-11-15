@@ -29,15 +29,15 @@ const readReports = () => {
     const testType = split[0];
     const framework = split[1];
     const currentXML = fileContents.get(key);
-    let times;
+    let times: number[] = [];
     if (currentXML["testsuite"]) {
       // mocha reporter
       const testCases = currentXML["testsuite"]["testcase"];
-      times = testCases.map((item) => item["_attributes"].time);
+      times = testCases.map((item) => Number(item["_attributes"].time));
     } else if (currentXML["testsuites"]) {
       // jest/vitest reporters
       const testCases = currentXML["testsuites"]["testsuite"]["testcase"];
-      times = testCases.map((item) => item["_attributes"].time);
+      times = testCases.map((item) => Number(item["_attributes"].time));
     }
 
     const aggregationKey = `${framework} ${testType}`;
