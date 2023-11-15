@@ -6,6 +6,17 @@ This repo serves as a testing ground for Vitest, Jest and Mocha. You can compare
 
 Some tests are located within a "src" folder, some are outside of it (within a "test" folder). The ones in the "src" folder belong to Jest / Vitest and will have a ".jest" or ".vitest" added to their names. I have preferred the pattern "name.jest.test.ts" for simplicity. 
 
+# Comparing Test Framework Performance
+
+Make sure to run `nvm use` if you are using NVM. Otherwise, I have used Node v18.16.0 to run the various parts of this repo.
+
+To compare the performance of the various test frameworks against each other, run: 
+```
+npm run full-test
+```
+
+This will run all of the test framework permutations 10 times each, then average their speeds and output them.
+
 # Pain Points
 
 While setting up for the plain JS Node tests, Jest required some extra work to get off the ground. These were largely caused by Jest not supporting ES Modules natively (you can see with the Jest tests I append "NODE_OPTIONS=--experimental-vm-modules" to aid this).
