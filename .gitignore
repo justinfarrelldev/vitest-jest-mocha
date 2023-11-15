@@ -1,2 +1,4 @@
 node_modules
 reports
+test_suite_results.txt
+test_case_results.txt

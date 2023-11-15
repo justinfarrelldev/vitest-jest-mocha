@@ -1,7 +1,9 @@
 import { xml2json } from "xml-js";
 import fs from "node:fs";
 
-const getAverageTestCaseTimes = (fileContents: Map<string, any>): void => {
+const getAverageTestCaseTimes = (
+  fileContents: Map<string, any>
+): Map<string, number> => {
   // jest:   testsuites -> testsuite -> testcase x3
   // vitest: testsuites -> testsuite -> testcase x3
   // mocha:  testsuite -> testcase x3
@@ -57,9 +59,12 @@ const getAverageTestCaseTimes = (fileContents: Map<string, any>): void => {
     "Map of Test Times (Seconds) for Each Test's Execution Time (NOT including startup and teardown) ",
     finalMap
   );
+  return finalMap;
 };
 
-const getAverageTestSuiteTimes = (fileContents: Map<string, any>): void => {
+const getAverageTestSuiteTimes = (
+  fileContents: Map<string, any>
+): Map<string, number> => {
   // jest:   testsuites -> testsuite -> testcase x3
   // vitest: testsuites -> testsuite -> testcase x3
   // mocha:  testsuite -> testcase x3
@@ -106,6 +111,7 @@ const getAverageTestSuiteTimes = (fileContents: Map<string, any>): void => {
     "Map of Times (Seconds) for Each Test Suite's Execution (INCLUDING startup and teardown) ",
     finalMap
   );
+  return finalMap;
 };
 
 const readReports = () => {
@@ -125,8 +131,17 @@ const readReports = () => {
     );
   }
 
-  getAverageTestCaseTimes(fileContents);
-  getAverageTestSuiteTimes(fileContents);
+  const averageTestCaseTimes = getAverageTestCaseTimes(fileContents);
+  const averageTestSuiteTimes = getAverageTestSuiteTimes(fileContents);
+
+  fs.writeFileSync(
+    "test_case_results.txt",
+    JSON.stringify(Object.fromEntries(averageTestCaseTimes), null, 2)
+  );
+  fs.writeFileSync(
+    "test_suite_results.txt",
+    JSON.stringify(Object.fromEntries(averageTestSuiteTimes), null, 2)
+  );
 };
 
 readReports();
