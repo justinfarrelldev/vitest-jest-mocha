@@ -22,20 +22,33 @@ const readReports = () => {
   // vitest: testsuites -> testsuite -> testcase x3
   // mocha:  testsuite -> testcase x3
 
+  // key is `${framework} ${testType}`, value is array of arrays of times
+  let aggregatedMap: Map<string, any[]> = new Map();
   for (const key of fileContents.keys()) {
+    const split = key.replace("reports/", "").split("-");
+    const testType = split[0];
+    const framework = split[1];
     const currentXML = fileContents.get(key);
+    let times;
     if (currentXML["testsuite"]) {
-      // mocha
+      // mocha reporter
       const testCases = currentXML["testsuite"]["testcase"];
-      const times = testCases.map((item) => item["_attributes"].time);
-      console.log("MOCHA: ", times);
+      times = testCases.map((item) => item["_attributes"].time);
     } else if (currentXML["testsuites"]) {
-      // jest/vitest
+      // jest/vitest reporters
       const testCases = currentXML["testsuites"]["testsuite"]["testcase"];
-      const times = testCases.map((item) => item["_attributes"].time);
-      console.log("Jest / Vitest: ", times);
+      times = testCases.map((item) => item["_attributes"].time);
+    }
+
+    const aggregationKey = `${framework} ${testType}`;
+    const valueWithinAggMap = aggregatedMap.get(aggregationKey);
+    if (valueWithinAggMap) {
+      aggregatedMap.set(aggregationKey, [...valueWithinAggMap, times]);
+    } else {
+      aggregatedMap.set(aggregationKey, [times]);
     }
   }
+  console.log("Agg: ", aggregatedMap);
 };
 
 readReports();
